@@ -28,6 +28,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <fluent:Ribbon Grid.Row="0" CanMinimize="False">
@@ -68,18 +69,58 @@
             <!--Tabs-->
             <fluent:RibbonTabItem Header="开始" Height="35">
                 <fluent:RibbonGroupBox Header="剪切板">
+                    <fluent:Button Header="剪切" Size="Large" LargeIcon="{DynamicResource Fluent.Ribbon.Images.Cut}"/>
+                    <fluent:Button Header="复制" Size="Large" LargeIcon="{DynamicResource Fluent.Ribbon.Images.Copy}"/>
                     <fluent:Button Header="粘贴" Size="Large"
                                    Icon="{DynamicResource Fluent.Ribbon.Images.Paste}"
                                    LargeIcon="{DynamicResource Fluent.Ribbon.Images.Paste}" />
-                    <fluent:Button Header="剪切" Size="Middle" Icon="{DynamicResource Fluent.Ribbon.Images.Cut}"/>
-                    <fluent:Button Header="复制" Size="Middle" Icon="{DynamicResource Fluent.Ribbon.Images.Copy}"/>
-                    <fluent:Button Header="显示" Size="Middle" Icon="Sources\Icons\Display.png"/>
+                    <!-- <fluent:Button Header="显示" Size="Middle" Icon="Sources\Icons\Display.png"/> -->
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="操作">
+                    <fluent:Button Header="撤销" Size="Large" LargeIcon="Sources/Icons/Undo.png"/>
+                    <fluent:Button Header="重做" Size="Large" LargeIcon="Sources/Icons/Redo.png"/>
+                    <Separator />
+                    <fluent:Button Header="删除" Size="Large" LargeIcon="Sources/Icons/Delete.png" />
+                    <!-- <fluent:Button Header="显示" Size="Middle" Icon="Sources\Icons\Display.png"/> -->
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="视图">
+                    <fluent:Button Header="放大" Size="Large" LargeIcon="Sources/Icons/Bigger.png"/>
+                    <fluent:Button Header="缩小" Size="Large" LargeIcon="Sources/Icons/Small.png"/>
+                    <fluent:Button Header="恢复" Size="Large" LargeIcon="Sources/Icons/Zoom.png" />
+                    <!-- <fluent:Button Header="显示" Size="Middle" Icon="Sources\Icons\Display.png"/> -->
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="方波">
+                    <fluent:RibbonToolBar>
+                        <fluent:RibbonToolBar.LayoutDefinitions>
+                            <fluent:RibbonToolBarLayoutDefinition Size="Large">
+                                <fluent:RibbonToolBarRow>
+                                    <fluent:RibbonToolBarControlDefinition Target="HighStateButton" Width="70" />
+                                    <fluent:RibbonToolBarControlDefinition Target="LowStateButton" Width="70" />
+                                </fluent:RibbonToolBarRow>
+                                <fluent:RibbonToolBarRow>
+                                    <fluent:RibbonToolBarControlDefinition Target="StateLengthSpinner" Size="Large" />
+                                </fluent:RibbonToolBarRow>
+                                <fluent:RibbonToolBarRow></fluent:RibbonToolBarRow>
+                            </fluent:RibbonToolBarLayoutDefinition>
+                        </fluent:RibbonToolBar.LayoutDefinitions>
+                        <fluent:RadioButton Header="高电平" Margin="2" GroupName="SquareType" Name="HighStateButton" IsChecked="True"></fluent:RadioButton>
+                        <fluent:RadioButton Header="低电平" Margin="2" GroupName="SquareType" Name="LowStateButton"></fluent:RadioButton>
+                        <fluent:Spinner Value="1" Format="0" Header="长度:" SelectAllTextOnFocus="True" Name="StateLengthSpinner" Size="Large" InputWidth="100" Margin="0,5,0,0" />
+                    </fluent:RibbonToolBar>
+                    <Separator />
+                    <fluent:Button Header="插入" Size="Large" LargeIcon="Sources/Icons/Insert.png"/>
+                    <fluent:Button Header="置高" Size="Large" LargeIcon="Sources/Icons/High.png"/>
+                    <fluent:Button Header="置低" Size="Large" LargeIcon="Sources/Icons/Low.png"/>
+                </fluent:RibbonGroupBox>
+                <fluent:RibbonGroupBox Header="帮助">
+                    <fluent:Button Header="帮助" Size="Large" LargeIcon="Sources/Icons/Help.png"/>
+                    <fluent:Button Header="关于" Size="Large" LargeIcon="Sources/Icons/About.png"/>
                 </fluent:RibbonGroupBox>
             </fluent:RibbonTabItem>
-            <fluent:RibbonTabItem Header="测量控制"></fluent:RibbonTabItem>
-            <fluent:RibbonTabItem Header="图像操作"></fluent:RibbonTabItem>
-            <fluent:RibbonTabItem Header="性能分析"></fluent:RibbonTabItem>
-            <fluent:RibbonTabItem Header="帮助"></fluent:RibbonTabItem>
+            <!-- <fluent:RibbonTabItem Header="信号"></fluent:RibbonTabItem> -->
+            <!-- <fluent:RibbonTabItem Header="图像操作"></fluent:RibbonTabItem> -->
+            <!-- <fluent:RibbonTabItem Header="性能分析"></fluent:RibbonTabItem> -->
+            <!-- <fluent:RibbonTabItem Header="帮助"></fluent:RibbonTabItem> -->
 
             <!--StartScreen-->
             <fluent:Ribbon.StartScreen>
@@ -93,7 +134,7 @@
                                     <RowDefinition Height="*"></RowDefinition>
                                     <RowDefinition Height="Auto"></RowDefinition>
                                 </Grid.RowDefinitions>
-                                <Label Grid.Row="0" Content="红外芯片测试系统"
+                                <Label Grid.Row="0" Content="数字波形编辑器"
                                        FontSize="40"
                                        Foreground="{DynamicResource Fluent.Ribbon.Brushes.IdealForegroundColorBrush}" />
                                 <Label Grid.Row="1" Content="最近操作的文档"
@@ -119,7 +160,8 @@
         <Grid Grid.Row="1" Grid.Column="0" Background="DarkGray">
             <!-- <TextBlock>My first window containing a Ribbon and something else.</TextBlock> -->
         </Grid>
-        <fluent:StatusBar HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Bottom">
+        <Grid Grid.Row="2" Grid.Column="0" Background="Blue"></Grid>
+        <fluent:StatusBar HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Bottom">
             <Separator HorizontalAlignment="Left" />
             <fluent:StatusBarItem Title="操作状态" Value="150" HorizontalAlignment="Left" Content="就绪" Margin="10,0,0,0"></fluent:StatusBarItem>
 

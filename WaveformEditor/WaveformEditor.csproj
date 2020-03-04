@@ -109,6 +109,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Sources\Icons\About.png" />
+    <Resource Include="Sources\Icons\Help.png" />
+    <Resource Include="Sources\Icons\High.png" />
+    <Resource Include="Sources\Icons\Low.png" />
+    <Resource Include="Sources\Icons\Insert.png" />
+    <Resource Include="Sources\Icons\Zoom.png" />
+    <Resource Include="Sources\Icons\Bigger.png" />
+    <Resource Include="Sources\Icons\DefaultSize.png" />
+    <Resource Include="Sources\Icons\Small.png" />
+    <Resource Include="Sources\Icons\Delete.png" />
+    <Resource Include="Sources\Icons\Undo.png" />
+    <Resource Include="Sources\Icons\Redo.png" />
     <Resource Include="Sources\Icons\Editor.png" />
     <Resource Include="Sources\Icons\Open.png" />
     <Resource Include="Sources\Icons\Waveform.png" />
