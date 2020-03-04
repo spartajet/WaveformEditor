@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:WaveformEditor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Generic.xaml" />
+
+                <!-- change "Cobalt" to the color you want -->
+                <!-- <ResourceDictionary Source="pack://application:,,,/Fluent;component/Themes/Themes/Colorful.Blue.xaml" /> -->
+                <ResourceDictionary Source="Styles/RibbonCustomStyle.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary> 
     </Application.Resources>
 </Application>
